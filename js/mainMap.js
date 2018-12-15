@@ -3,12 +3,16 @@ require([
     'esri/Graphic',
     'esri/Map',
     'esri/views/MapView',
+    'dojo/json',
+    'dojo/text!/merryChristmasGIS/data/data.json',
     'dojo/domReady!'
   ], function(
     CanvasFlowmapLayer,
     Graphic,
     EsriMap,
-    MapView
+    MapView,
+    JSON,
+    data
   ) {
     var view = new MapView({
       container: 'viewDiv',
@@ -22,21 +26,30 @@ require([
         components: ['zoom', 'attribution', 'compass']
       }
     });
-  
-    view.when(function() {
-      // here we use Papa Parse to load and read the CSV data
-      // we could have also used another library like D3js to do the same
-      Papa.parse('data/data.csv', {
-        download: true,
-        header: true,
-        dynamicTyping: true,
-        skipEmptyLines: true,
-        complete: handleCsvParsingComplete
-      });
-    });
-  
+
+    // view.when(function() {
+    //   // here we use Papa Parse to load and read the CSV data
+    //   // we could have also used another library like D3js to do the same
+    //   Papa.parse('data/data.csv', {
+    //     download: true,
+    //     header: true,
+    //     dynamicTyping: true,
+    //     skipEmptyLines: true,
+    //     complete: handleCsvParsingComplete
+    //   });
+    // });
+
+    view.when(manejarJson)
+        .then(handleCsvParsingComplete);
+
+    function manejarJson(){
+      data = JSON.parse(data);
+      console.log(data);
+    }
+
     function handleCsvParsingComplete(results) {
-      var graphicsFromCsvRows = results.data.map(function(datum) {
+      //console.log(data);
+      var graphicsFromCsvRows = data.map(function(datum) {
         return new Graphic({
           geometry: {
             type: 'point',
@@ -46,11 +59,11 @@ require([
           attributes: datum
         });
       });
-  
       var canvasFlowmapLayer = new CanvasFlowmapLayer({
         // array of Graphics
+
         graphics: graphicsFromCsvRows,
-  
+
         // information about the uniqe origin-destinatino fields and geometries
         originAndDestinationFieldIds: {
           originUniqueIdField: 's_city_id',
@@ -71,25 +84,25 @@ require([
           }
         }
       });
-  
+      console.log(canvasFlowmapLayer);
       view.map.layers.add(canvasFlowmapLayer);
-  
+
       // get access to the CanvasFlowmapLayer's layerView to make modifications
       // of which O-D relationships are flagged for path display
       view.whenLayerView(canvasFlowmapLayer).then(function(canvasFlowmapLayerView) {
         // automatically select a few ORIGIN locations for path display
         // in order to demonstrate the flowmap functionality,
         // without being overwhelming and showing all O-D relationships
-  
+
         // Reykjavík
         canvasFlowmapLayerView.selectGraphicsForPathDisplayById('s_city_id', 562, true, 'SELECTION_NEW');
-  
+
         // Alexandria
         canvasFlowmapLayerView.selectGraphicsForPathDisplayById('s_city_id', 1, true, 'SELECTION_ADD');
-  
+
         // Tokyo
         canvasFlowmapLayerView.selectGraphicsForPathDisplayById('s_city_id', 642, true, 'SELECTION_ADD');
-  
+
         // establish a hitTest to try to select new O/D relationships
         // for path display from user interaction;
         // try either 'pointer-move' or 'click' to see the effects
@@ -103,7 +116,7 @@ require([
             if (!response.results.length) {
               return;
             }
-  
+
             // check if the graphic(s) belongs to the layer of interest
             // and mark them as selected for Bezier path display
             response.results.forEach(function(result) {
@@ -130,4 +143,3 @@ require([
       });
     }
   });
-  
