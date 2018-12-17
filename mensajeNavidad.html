@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="css/styleForm.css">
+    <link rel="stylesheet" href="css/mensaje.css">
 
     <title>Merry Christmas GIS</title>
 </head>
@@ -37,7 +38,7 @@
                                 <label for="id_username" class="control-label col-md-4  requiredField"> Tu Nombre<span
                                         class="asteriskField">*</span> </label>
                                 <div class="controls col-md-8 ">
-                                    <input class="input-md  textinput textInput form-control" id="id_username"
+                                    <input class="input-md  textinput textInput form-control" id="nombre_remitente"
                                         maxlength="30" name="username" placeholder="fabian Camilo" style="margin-bottom: 10px"
                                         type="text" />
                                 </div>
@@ -45,17 +46,20 @@
                             <div id="div_id_username" class="form-group required">
                                 <label for="id_username" class="control-label col-md-4  requiredField"> Tu ciudad<span
                                         class="asteriskField">*</span> </label>
-                                <div class="controls col-md-8 ">
-                                    <input class="input-md  textinput textInput form-control" id="ciudadOrigen"
-                                        maxlength="30" onkeyup="myFunction()" name="username" placeholder="Bogotá" style="margin-bottom: 10px"
+                                <div class=" autocomplete controls col-md-8 ">
+                                    <input list="opciones" class="input-md textinput textInput form-control" id="ciudadOrigen"
+                                        maxlength="30" onkeyup="capturaOrigen();" name="opciones" placeholder="Bogotá" style="margin-bottom: 10px"
                                         type="text" />
+                                        <datalist id="opciones">
+                                                <option value="AL">Alabama</option>
+                                        </datalist>
                                 </div>
                             </div>
                             <div id="div_id_username" class="form-group required">
                                 <label for="id_username" class="control-label col-md-4  requiredField"> Nombre persona
                                     Especial<span class="asteriskField">*</span> </label>
                                 <div class="controls col-md-8 ">
-                                    <input class="input-md  textinput textInput form-control" id="id_username"
+                                    <input id="nombre_destinatario" class="input-md  textinput textInput form-control" id="id_username"
                                         maxlength="30" name="username" placeholder="Carolina" style="margin-bottom: 10px"
                                         type="text" />
                                 </div>
@@ -64,16 +68,19 @@
                                 <label for="id_username" class="control-label col-md-4  requiredField"> ciudad de esa
                                     persona<span class="asteriskField">*</span> </label>
                                 <div class="controls col-md-8 ">
-                                    <input class="input-md  textinput textInput form-control" id="id_username"
+                                    <input onkeyup="capturaDestino();" class="input-md  textinput textInput form-control" id="ciudadDestino"
                                         maxlength="30" name="username" placeholder="Medellin" style="margin-bottom: 10px"
-                                        type="text" />
+                                        type="text" list="opcionesDestino"/>
+                                        <datalist id="opcionesDestino">
+                                                <option value="AL">Alabama</option>
+                                        </datalist>
                                 </div>
                             </div>
                             <div id="div_id_username" class="form-group required">
                                 <label for="id_username" class="control-label col-md-4  requiredField"> su correo<span
                                         class="asteriskField">*</span> </label>
                                 <div class="controls col-md-8 ">
-                                    <input class="input-md  textinput textInput form-control" id="id_username"
+                                    <input class="input-md  textinput textInput form-control" id="correo_destinatario"
                                         maxlength="30" name="username" placeholder="caro@mail.com" style="margin-bottom: 10px"
                                         type="text" />
                                 </div>
@@ -82,7 +89,7 @@
                                     <label for="id_username" class="control-label col-md-4  requiredField">el mensaje<span
                                             class="asteriskField">*</span> </label>
                                     <div class="controls col-md-8 ">
-                                        <textarea class="input-md  textinput textInput form-control" id="id_username"
+                                        <textarea class="input-md  textinput textInput form-control" id="mensaje"
                                             maxlength="30" name="username" placeholder="Te quiero y en navidad te quiero mas" style="margin-bottom: 10px"
                                             type="text" ></textarea>
                                     </div>
@@ -102,7 +109,7 @@
                             <div class="form-group">
                                 <div class="aab controls col-md-4 "></div>
                                 <div class="controls col-md-8 ">
-                                    <input type="submit" name="Signup" value="Enviar" class="btn btn-primary btn btn-info"
+                                    <input onclick="procesar();" name="Signup" value="Enviar" class="btn btn-primary btn btn-info"
                                         id="submit-id-send" />
                                 </div>
                             </div>
