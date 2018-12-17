@@ -114,13 +114,13 @@ require([
         // without being overwhelming and showing all O-D relationships
 
         // Reykjavík
-        canvasFlowmapLayerView.selectGraphicsForPathDisplayById('direccion_remitente', 562, true, 'SELECTION_NEW');
+        canvasFlowmapLayerView.selectGraphicsForPathDisplayById('direccion_remitente', "Cl. 90 #13-40, Bogotá", true, 'SELECTION_NEW');
 
         // Alexandria
-        canvasFlowmapLayerView.selectGraphicsForPathDisplayById('direccion_remitente', 1, true, 'SELECTION_ADD');
+        //canvasFlowmapLayerView.selectGraphicsForPathDisplayById('direccion_remitente', 1, true, 'SELECTION_ADD');
 
         // Tokyo
-        canvasFlowmapLayerView.selectGraphicsForPathDisplayById('direccion_remitente', 642, true, 'SELECTION_ADD');
+        //canvasFlowmapLayerView.selectGraphicsForPathDisplayById('direccion_remitente', 642, true, 'SELECTION_ADD');
 
         // establish a hitTest to try to select new O/D relationships
         // for path display from user interaction;
