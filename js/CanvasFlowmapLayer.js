@@ -346,24 +346,24 @@ define([
         originCircle: {
           globalCompositeOperation: 'destination-over',
           radius: 5,
-          fillStyle: 'rgba(195, 255, 62, 0.60)',
+          fillStyle: '#385825',
           lineWidth: 1,
-          strokeStyle: 'rgb(195, 255, 62)',
+          strokeStyle: '#385825',
           shadowBlur: 0
         },
         destinationCircle: {
           globalCompositeOperation: 'destination-over',
           radius: 2.5,
-          fillStyle: 'rgba(255, 0, 51, 0.8)',
+          fillStyle: '#aa1917',
           lineWidth: 0.25,
-          strokeStyle: 'rgb(17, 142, 170)',
+          strokeStyle: '#7f1716',
           shadowBlur: 0
         },
         flowline: {
-          strokeStyle: 'rgba(255, 0, 51, 0.8)',
+          strokeStyle: '#385825',
           lineWidth: 0.75,
           lineCap: 'round',
-          shadowColor: 'rgb(255, 0, 51)',
+          shadowColor: '#385825',
           shadowBlur: 1.5
         }
       },
