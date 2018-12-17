@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+
+}
+section{
+
+  margin: 2px auto;
+  width: 1025px;
+  height: 150px;
+}
+.redes{
+  width: 70px;
+  height: 70px;
+  float: left;
+  margin-left: 120px;
+  transition: all 0.4s ease-out;
+  position: relative;
+  left: 17%;
+  top: 100%;
+  border-radius: 50%;
+}
+.redes#facebook{
+   background: #f20d37;
+}
+.redes#twitter{
+  background: #0084b4;
+}
+.redes#instagram{
+  background: #10e947;
+}
+.icono{
+  margin:0px auto;
+  padding: 12px;
+  margin-top: 3px;
+  width: 70px;
+}
+.redes:hover{
+  cursor: pointer;
+  transform: translateY(-10px);
+  box-shadow: 4px 30px 16px 0px rgba(50,50,50,0.45);
+}
