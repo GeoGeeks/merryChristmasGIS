@@ -2,7 +2,7 @@ function myFunction() {
     var ciudadOrigen = document.getElementById("ciudadOrigen").value;
     console.log(ciudadOrigen);
 
-      axios.get('http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/suggest', {params:{
+      axios.get('https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/suggest', {params:{
         text: ciudadOrigen,
         f: "pjson"
       }})
