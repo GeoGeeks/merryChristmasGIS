@@ -2,7 +2,7 @@ function myFunction() {
     var ciudadOrigen = document.getElementById("ciudadOrigen").value;
     console.log(ciudadOrigen);
 
-      axios.get('https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/suggest', {params:{
+      axios.get('http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/suggest', {params:{
         text: ciudadOrigen,
         f: "pjson"
       }})
@@ -16,12 +16,13 @@ function guardar(response){
 
   for (var i = 0; i < response.data.suggestions.length; i++) {
 
-    let  sugerencia = {
+    var sugerencia = {
       text : response.data.suggestions[i].text,
       value : response.data.suggestions[i].magicKey
     }
     sugerencias.push(sugerencia);
   }
+  console.log(sugerencias);
   var opcion = "";
 
   sugerencias.forEach((option) => {
@@ -30,7 +31,7 @@ function guardar(response){
   }
   );
 
-} 
+}
 
 function enviar(){
 
