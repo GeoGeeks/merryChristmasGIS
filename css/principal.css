@@ -7,16 +7,17 @@ a,
 a:focus,
 a:hover {
   color: #fff;
+
 }
 
 /* Custom default button */
 .btn-default,
 .btn-default:hover,
 .btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
+  position: relative;
+  
+  border:2px solid rgba(79, 73, 79, 0);
+  width: 200px;
 }
 
 
@@ -24,29 +25,36 @@ a:hover {
  * Base structure
  */
 
-html,
-body {
-  height: 100%;
-  background-color: #fff;
-}
-body {
-  color: #fff;
+
+
+
+body,html {
+
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
   display: table;
   width: 100%;
-  height: 600px;
-  background-color: #333;
-  /*height: 100%; */
+  height: 695PX;
+
+
+
+  /*height: 100%;*/
   /*min-height: 100%;*/
+
 }
 .site-wrapper-inner {
   display: table-cell;
-  vertical-align: top;
+  margin: 0;
+  padding: 0;
+  background:url("../gif/fondo_12.gif");
+  background-size: 100%;
+  background-position: 50% 19%;
+  background-repeat:no-repeat;
+
 }
 .cover-container {
   margin-right: auto;
@@ -55,7 +63,7 @@ body {
 
 /* Padding for spacing */
 .inner {
-  padding: 30px;
+padding: 30px;
 }
 
 
@@ -65,6 +73,8 @@ body {
 .masthead-brand {
   margin-top: 10px;
   margin-bottom: 10px;
+ margin: 0;
+
 }
 
 .masthead-nav > li {
@@ -132,6 +142,63 @@ body {
     vertical-align: middle;
   }
 
+.color{
 
+background: -moz-linear-gradient(top, #f85032 8%, #f85032 36%, #f16f5c 73%, #e73827 92%, #f6290c 97%, #f6290c 97%, #f6290c 99%, #e73827 100%, #f02f17 100%, #f6290c 100%, #f02f17 100%, #e73827 100%);
+background: -webkit-linear-gradient(top, #f85032 8%,#f85032 36%,#f16f5c 73%,#e73827 92%,#f6290c 97%,#f6290c 97%,#f6290c 99%,#e73827 100%,#f02f17 100%,#f6290c 100%,#f02f17 100%,#e73827 100%);
+background: linear-gradient(to bottom, #f85032 8%,#f85032 36%,#f16f5c 73%,#e73827 92%,#f6290c 97%,#f6290c 97%,#f6290c 99%,#e73827 100%,#f02f17 100%,#f6290c 100%,#f02f17 100%,#e73827 100%);
+font-family: serif;
+
+color:#fff;
+position: relative;
+left:   -100px;
+
+  }
+.color_2{
+  background: #ffd65e; /* Old browsers */
+  background: #b4e391; /* Old browsers */
+  background: -moz-linear-gradient(top, #b4e391 0%, #61c419 69%, #61c419 69%, #61c419 79%, #b4e391 84%, #b4e391 85%, #b4e391 93%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #b4e391 0%,#61c419 69%,#61c419 69%,#61c419 79%,#b4e391 84%,#b4e391 85%,#b4e391 93%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #b4e391 0%,#61c419 69%,#61c419 69%,#61c419 79%,#b4e391 84%,#b4e391 85%,#b4e391 93%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  color:#fff;
+  position: relative;
+  left: 100px;
+
+}
+}
+.color:hover{
+background:url(../gif/fondo_btn.gif);
+color: rgb(235, 147, 109);
+border: 1PX solid rgb(33, 33, 33);
+}
+.color_2:hover{
+background: url(../gif/fondo_btn2.gif);
+background-position: 130% 70%;
+color: rgb(213, 237, 15);
+border: 1PX solid rgb(33, 33, 33);
+}
+.posicion{
+
+  position: absolute;
+  padding: 0;
+  margin: 0 ;
+  right:   -200px;
+}
+
+.letra{
+  font-family: "Mongolian Baiti";
+
+  font-size: 100px;
+  letter-spacing: 5px;
+  color: transparent;
+  background: linear-gradient(
+  rgb(210, 1, 14),
+  rgb(213, 185, 180)
+
+    );
+    -webkit-background-clip: text;
+
+}
+.tarjeta{
 
 }

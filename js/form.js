@@ -132,6 +132,7 @@ function dataForm(){
    var data = JSON.stringify(info);
   axios.post('https://cors-anywhere.herokuapp.com/http://geoapps.esri.co/Gismas/rest/dbm/', data, {headers: headers}) .then(function(response) {
     console.log("Enviado");
+    alert("Tu mensaje ha sido enviado");
   }).catch(function(error) {
     console.log(error);
   })
