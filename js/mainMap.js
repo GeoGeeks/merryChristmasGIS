@@ -1,25 +1,29 @@
 require([
     'Canvas-Flowmap-Layer/CanvasFlowmapLayer',
     'esri/Graphic',
+    "esri/WebMap",
     'esri/Map',
     'esri/views/MapView',
     'dojo/json',
-    'dojo/text!/merryChristmasGIS/data/data.json',
     'dojo/domReady!'
   ], function(
     CanvasFlowmapLayer,
     Graphic,
+    WebMap,
     EsriMap,
     MapView,
-    JSON,
-    data
+    JSON
   ) {
+
+    var webmap = new WebMap({
+       portalItem: { // autocasts as new PortalItem()
+         id: "d81d00b78ba94daa9a00ef534d9e8602"
+       }
+     });
+
     var view = new MapView({
       container: 'viewDiv',
-      map: new EsriMap({
-        // use a standard Web Mercator map projection basemap
-        basemap: 'dark-gray-vector'
-      }),
+      map: webmap,
       zoom: 2,
         center: [-32, 28],
       ui: {
@@ -39,22 +43,37 @@ require([
     //   });
     // });
 
-    view.when(manejarJson)
-        .then(handleCsvParsingComplete);
+    view.when(getJson);
+      //  .then(handleCsvParsingComplete);
 
-    function manejarJson(){
-      data = JSON.parse(data);
-      console.log(data);
+
+    // function manejarJson(){
+    //   data = JSON.parse(data);
+    //   console.log(data);
+    // }
+
+    function getJson(){
+
+      axios.get('https://cors-anywhere.herokuapp.com/http://geoapps.esri.co/Gismas/rest/dbm/?format=json')
+      .then((response) =>{
+        console.log("voy a traer el json");
+        var data =response.data;
+        console.log("data parseado",data);
+        handleCsvParsingComplete(data);
+      }).catch((err) =>{
+        console.log(err);
+      });
     }
 
+
     function handleCsvParsingComplete(results) {
-      //console.log(data);
-      var graphicsFromCsvRows = data.map(function(datum) {
+      console.log("datos a mapear",results);
+      var graphicsFromCsvRows = results.map(function(datum) {
         return new Graphic({
           geometry: {
             type: 'point',
-            longitude: datum.s_lon,
-            latitude: datum.s_lat
+            longitude: datum.lon_origen,
+            latitude: datum.lat_origen
           },
           attributes: datum
         });
@@ -66,18 +85,18 @@ require([
 
         // information about the uniqe origin-destinatino fields and geometries
         originAndDestinationFieldIds: {
-          originUniqueIdField: 's_city_id',
+          originUniqueIdField: 'direccion_remitente',
           originGeometry: {
-            x: 's_lon',
-            y: 's_lat',
+            x: 'lon_origen',
+            y: 'lat_origen',
             spatialReference: {
               wkid: 4326
             }
           },
-          destinationUniqueIdField: 'e_city_id',
+          destinationUniqueIdField: 'direccion_destinatario',
           destinationGeometry: {
-            x: 'e_lon',
-            y: 'e_lat',
+            x: 'lon_destino',
+            y: 'lat_destino',
             spatialReference: {
               wkid: 4326
             }
@@ -95,13 +114,13 @@ require([
         // without being overwhelming and showing all O-D relationships
 
         // Reykjavík
-        canvasFlowmapLayerView.selectGraphicsForPathDisplayById('s_city_id', 562, true, 'SELECTION_NEW');
+        canvasFlowmapLayerView.selectGraphicsForPathDisplayById('direccion_remitente', "Cl. 90 #13-40, Bogotá", true, 'SELECTION_NEW');
 
         // Alexandria
-        canvasFlowmapLayerView.selectGraphicsForPathDisplayById('s_city_id', 1, true, 'SELECTION_ADD');
+        //canvasFlowmapLayerView.selectGraphicsForPathDisplayById('direccion_remitente', 1, true, 'SELECTION_ADD');
 
         // Tokyo
-        canvasFlowmapLayerView.selectGraphicsForPathDisplayById('s_city_id', 642, true, 'SELECTION_ADD');
+        //canvasFlowmapLayerView.selectGraphicsForPathDisplayById('direccion_remitente', 642, true, 'SELECTION_ADD');
 
         // establish a hitTest to try to select new O/D relationships
         // for path display from user interaction;
@@ -123,15 +142,15 @@ require([
               if (result.graphic.layer === canvasFlowmapLayer) {
                 if (result.graphic.isOrigin) {
                   canvasFlowmapLayerView.selectGraphicsForPathDisplayById(
-                    's_city_id',
-                    result.graphic.attributes.s_city_id,
+                    'direccion_remitente',
+                    result.graphic.attributes.direccion_remitente,
                     result.graphic.attributes.isOrigin,
                     'SELECTION_NEW'
                   );
                 } else {
                   canvasFlowmapLayerView.selectGraphicsForPathDisplayById(
-                    'e_city_id',
-                    result.graphic.attributes.e_city_id,
+                    'direccion_destinatario',
+                    result.graphic.attributes.direccion_destinatario,
                     result.graphic.attributes.isOrigin,
                     'SELECTION_NEW'
                   );
