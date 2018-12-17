@@ -12,17 +12,30 @@ function myFunction() {
 }
 
 function guardar(response){
-  console.log(response);
     var sugerencias = [];
-    var idmagic = [];
 
   for (var i = 0; i < response.data.suggestions.length; i++) {
-    var sugerencia = response.data.suggestions[i].text;
-    var idm = response.data.suggestions[i].text;
-    sugerencias.push(sugerencia);
-    idmagic.push(idm);
-  }  console.log(sugerencias);
-  sugerencias = [];
 
+    let  sugerencia = {
+      text : response.data.suggestions[i].text,
+      value : response.data.suggestions[i].magicKey
+    }
+    sugerencias.push(sugerencia);
+  }
+  var opcion = "";
+
+  sugerencias.forEach((option) => {
+    opcion += '<option value ="'+ option.text+'">';
+     document.getElementById('opciones').innerHTML = opcion;
+  }
+  );
+
+} 
+
+function enviar(){
+
+var origen = document.getElementById("ciudadOrigen").value;
+console.log(origen);
+console.log(sugerencias);
 
 }
