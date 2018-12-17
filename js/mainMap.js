@@ -1,6 +1,7 @@
 require([
     'Canvas-Flowmap-Layer/CanvasFlowmapLayer',
     'esri/Graphic',
+    "esri/WebMap",
     'esri/Map',
     'esri/views/MapView',
     'dojo/json',
@@ -9,17 +10,22 @@ require([
   ], function(
     CanvasFlowmapLayer,
     Graphic,
+    WebMap,
     EsriMap,
     MapView,
     JSON,
     data
   ) {
+
+    var webmap = new WebMap({
+       portalItem: { // autocasts as new PortalItem()
+         id: "d81d00b78ba94daa9a00ef534d9e8602"
+       }
+     });
+
     var view = new MapView({
       container: 'viewDiv',
-      map: new EsriMap({
-        // use a standard Web Mercator map projection basemap
-        basemap: 'dark-gray-vector'
-      }),
+      map: webmap,
       zoom: 2,
         center: [-32, 28],
       ui: {
