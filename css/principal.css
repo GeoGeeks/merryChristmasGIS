@@ -24,6 +24,7 @@ body{
   align-items: center;
   width: 100%;
   height: 792px;
+  max-width: 0px;
   background-attachment: fixed;
 
 }
