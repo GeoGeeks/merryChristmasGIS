@@ -393,7 +393,7 @@
 
 		datalistSelect.size =
 			datalistSelectOptionsLength > 10 ? 10 : datalistSelectOptionsLength;
-		datalistSelect.multiple = !touched && datalistSelectOptionsLength < 2;
+		datalistSelect.multiple = !touched && datalistSelectOptionsLength < 6;
 
 		// Input the unused options as siblings next to the select - and differentiate in between the regular, and the IE9 fix syntax upfront
 		(datalist.getElementsByClassName('ie9_fix')[0] || datalist).appendChild(
