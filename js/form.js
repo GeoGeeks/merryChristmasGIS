@@ -111,6 +111,7 @@ function dataForm(){
   var lat_destino = yDestino;
   var lon_destino = xDestino;
 
+
   var headers = {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*"
@@ -127,7 +128,8 @@ function dataForm(){
     lat_origen: lat_origen,
     lon_origen: lon_origen,
     lat_destino: lat_destino,
-    lon_destino: lon_destino
+    lon_destino: lon_destino,
+    terminos: true
   };
    var data = JSON.stringify(info);
   axios.post('https://cors-anywhere.herokuapp.com/http://geoapps.esri.co/Gismas/rest/dbm/', data, {headers: headers}) .then(function(response) {
