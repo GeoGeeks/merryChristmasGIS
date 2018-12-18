@@ -55,3 +55,6 @@ input, textarea{
 .controls{
   margin:auto;
 }
+#styleIn{
+  background-color: white;
+}

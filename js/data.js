@@ -425,9 +425,8 @@
 
 		var rects = input.getClientRects(),
 			// Measurements
-			inputStyles = window.getComputedStyle(input),
+			inputStyles = window.getComputedStyle(styleIn),
 			datalistSelect = dcmnt.createElement('select');
-      datalistSelect.setAttribute(background-color, "white");
 
 		// Setting a class for easier identifying that select afterwards
 		datalistSelect.setAttribute('class', classNamePolyfillingSelect);
@@ -508,7 +507,7 @@
 		var datalistSelect = event.target,
 			datalist = datalistSelect.parentNode,
 			input = dcmnt.querySelector('input[list="' + datalist.id + '"]');
-
+      styleIn = dcmnt.querySelector("styleIn");
 		// Check for whether the events target was a select or whether the input doesn't exist
 		if (datalistSelect.tagName.toLowerCase() !== 'select' || input === null) {
 			return;
