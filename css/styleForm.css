@@ -1,7 +1,57 @@
 #form-msg{
-    background-image: url("../img/background_marfil.jpg");
+    /* background-image: url("../img/cuadrito_ramitas_web.png"); */
+    background-image: url("../img/background_landing_completo.jpg");
+    /*
+    width: 10%;
+    height: 10%; */
+    background-size: cover;
+    background-position: center;
+    display: block;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-#logo_esri_gris{
-  padding: ;
+.from_to{
+  padding-left: 20px;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 12px;
+}
+
+.title-navidad{
+  font-family: 'Libre Baskerville', serif;
+  color:#aa1917;
+  font-size: 12px;
+  padding-top: 10px;
+
+  /*text-align: center;*/
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #b2b2b2;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #b2b2b2;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #b2b2b2;
+}
+input, textarea{
+  background-color: #f6f6f6 !important;
+}
+.textinput{
+  font-size: xx-small;
+}
+
+
+#submit-id-send{
+  background-color: #2a392b !important;
+  color: #ffffff;
+  font-size: xx-small !important;
+}
+
+.controls{
+  margin:auto;
 }
