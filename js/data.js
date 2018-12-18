@@ -18,9 +18,10 @@
 		ua = window.navigator.userAgent,
 		// Feature detection
 		datalistSupported =
-			'list' in dcmnt.createElement('input').setAttribute(backgroundcolor, "white"); &&
+			'list' in dcmnt.createElement('input') &&
 			Boolean(dcmnt.createElement('datalist') && window.HTMLDataListElement),
 		// IE & EDGE browser detection via UserAgent
+
 		// TODO: obviously ugly. But sadly necessary until Microsoft enhances the UX within EDGE (compare to https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/9573654/)
 		// adapted out of https://gist.github.com/gaboratorium/25f08b76eb82b1e7b91b01a0448f8b1d :
 		isGteIE11orEDGE = Boolean(
@@ -426,6 +427,7 @@
 			// Measurements
 			inputStyles = window.getComputedStyle(input),
 			datalistSelect = dcmnt.createElement('select');
+      datalistSelect.setAttribute(background-color, "white");
 
 		// Setting a class for easier identifying that select afterwards
 		datalistSelect.setAttribute('class', classNamePolyfillingSelect);
