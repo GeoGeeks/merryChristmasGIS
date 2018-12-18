@@ -18,7 +18,7 @@
 		ua = window.navigator.userAgent,
 		// Feature detection
 		datalistSupported =
-			'list' in dcmnt.createElement('input') &&
+			'list' in dcmnt.createElement('input').setAttribute(backgroundcolor, "white"); &&
 			Boolean(dcmnt.createElement('datalist') && window.HTMLDataListElement),
 		// IE & EDGE browser detection via UserAgent
 		// TODO: obviously ugly. But sadly necessary until Microsoft enhances the UX within EDGE (compare to https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/9573654/)
