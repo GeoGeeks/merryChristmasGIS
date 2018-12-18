@@ -40,6 +40,7 @@
 }
 input, textarea{
   background-color: #f6f6f6 !important;
+  position: relative;
 }
 .textinput{
   font-size: xx-small;
@@ -57,5 +58,5 @@ input, textarea{
 }
 #styleIn{
   background-color: white;
-  position:absolute; 
+  position:absolute;
 }
