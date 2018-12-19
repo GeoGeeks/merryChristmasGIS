@@ -1,0 +1,128 @@
+body{
+  background: url(../img/fondo3_gif.gif);
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.general{
+  margin: auto;
+  margin-top: 1%;
+  width: 870px;
+  height:580px;
+
+  border: 2px solid rgba(15, 17, 15, 0);
+}
+.fondo{
+
+  margin: auto;
+  margin-top: 2%;
+
+  padding: 0;
+  width: 576px;
+  height: 573px;
+  background:url(../img/cuadro_blanco.png);
+  background-repeat: no-repeat;
+  background-position: 50% 30%;
+  background-size: 110%;
+
+    border: 2px solid rgba(15, 17, 15, 0)
+
+}
+
+.p_1{
+  margin: auto;
+  margin-left: 8%;
+  margin-top: 33%;
+  text-align: center;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: bold;
+  font-size: 125%;
+}
+
+
+.p_5{
+  margin: auto;
+
+  margin-top: 1%;
+  text-align: center;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: bold;
+
+}
+}
+.parrafo_1{
+  margin: auto;
+  margin-top: 60%;
+  margin-left: 12%;
+  width: 500px;
+  height: 150px;
+  padding: 0;
+  border: 2px solid rgba(11, 11, 11, 0);
+}
+.parrafo_2{
+  margin: auto;
+  margin-top: 6%;
+  margin-left: 12%;
+  width: 500px;
+  height: 200px;
+
+
+
+  border: 2px solid rgba(11, 11, 11, 0);
+}
+.flor{
+  margin: auto;
+  padding: 0;
+  margin-top: -73% ;
+  margin-left: -230px;
+  width: 300px;
+  height: 425px;
+  background: url(../img/ramas.png);
+  background-size: 580px;
+  background-position: 18% 70%;
+  background-repeat: no-repeat;
+  border: 2px solid rgba(22, 22, 23, 0);
+
+}
+.esri{
+  width: 400px;
+  height: 100px;
+margin:auto;
+margin-top: -105%;
+background: url(../img/logo_esri_gris.png);
+background-size: 260px;
+background-position: 70% 50%;
+background-repeat: no-repeat;
+    border: 2px solid rgba(5, 5, 5, 0);
+}
+.botones{
+  width: 400px;
+  height: 60px;
+  margin-left: 10%;
+  margin-top: -2%;
+  border: 2px solid rgba(235, 238, 223, 0.02);
+
+}
+.boton{
+  background: #2a392b;
+  margin-top: 8%;
+   margin-left: -5%;
+  padding: 0;
+  color: white;
+
+
+}
+.boton_2{
+background: #7f1716;
+ margin-left: 60%;
+ margin-top: -19%;
+ padding: 0;
+ color: white;
+}
+.boton:hover{
+  color:  #636060;
+}
+.boton_2:hover{
+  color:  #636060;
+}
