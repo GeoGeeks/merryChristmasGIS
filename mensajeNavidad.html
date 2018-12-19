@@ -13,13 +13,97 @@
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:700" rel="stylesheet">
     <title>Merry Christmas GIS</title>
 </head>
+<div class="fondo_flor">
+      <div class="formu">
 
+        <form class="form-horizontal" method="post">
+        <div class="feliz">
+          <h5 >Feliz Navidad</h5>
+        </div>
+                        <div class="from_to"> De:</div>
+                        <div id="div_id_username" class="form-group required" >
+                            <div class="controls col-md-8 text-center" >
+                                <input class="input-group input-group-sm  textinput form-control input-md" id="nombre_remitente"
+                                    maxlength="30" name="username" placeholder="Nombre*"
+                                    type="text" required />
+                            </div>
+                        </div>
+
+                        <div id="div_id_username" class="form-group required">
+                            <div class=" autocomplete controls col-md-8 ">
+
+                                <input list="opciones" class="input-md textinput textInput form-control" id="ciudadOrigen"
+                                    maxlength="30" onkeyup="capturaOrigen();" name="opciones" placeholder="Ciudad Origen*" style="margin-bottom: 10px"
+                                    type="text" required/>
+                                    <datalist id="opciones">
+                                            <option value="AL">Alabama</option>
+                                    </datalist>
+                                    <div id="styleIn" class="form-group required">
+                                    </div>
+                            </div>
+                        </div>
+                        <div  class="from_to"> Para:</div>
+                        <div id="div_id_username" class="form-group required">
+
+                            <div class="controls col-md-8 ">
+                                <input id="nombre_destinatario" class="input-md  textinput textInput form-control" id="id_username"
+                                    maxlength="30" name="username" placeholder="Nombre*" style="margin-bottom: 10px"
+                                    type="text" required/>
+                            </div>
+                        </div>
+                        <div id="div_id_username" class="form-group required">
+                            <div class="controls col-md-8 ">
+                                <input onkeyup="capturaDestino();" class="input-md  textinput textInput form-control" id="ciudadDestino"
+                                    maxlength="30" name="username" placeholder="Ciudad destino*" style="margin-bottom: 10px"
+                                    type="text" list="opcionesDestino"/>
+                                    <datalist id="opcionesDestino">
+                                            <option value="AL">Alabama</option>
+                                    </datalist>
+                            </div>
+                        </div>
+                        <div id="div_id_username" class="form-group required">
+                            <div class="controls col-md-8 ">
+                                <input class="input-sm  textinput textInput form-control input-md" id="correo_destinatario"
+                                    maxlength="30" name="username" placeholder="Correo*" style="margin-bottom: 10px"
+                                    type="text" />
+                            </div>
+                        </div>
+                        <div id="div_id_username" class="form-group required">
+                                <div class="controls col-md-8 ">
+                                    <textarea class="input-md  textinput textInput form-control" id="mensaje"
+                                        maxlength="250" name="username" placeholder="Mensaje*" style="margin-bottom: 10px"
+                                        type="text" ></textarea>
+                                </div>
+                            </div>
+                        <div class="form-group">
+                            <div class="controls col-md-offset-4 col-md-8 ">
+                                <div id="div_id_terms" class="checkbox required textinput">
+                                        <input class="input-ms checkboxinput " id="id_terms" name="terms" style="margin-bottom: 10px"
+                                            type="checkbox" />
+                                        ¿Aceptas los terminos y condiciones para el manejo de tus datos?
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <div class="aab controls col-md-4 "></div>
+                            <div class="controls col-md-8 ">
+                                <input type="button" onclick="procesar();" name="Signup" value="Enviar Mensaje" class="btn"
+                                    id="submit-id-send"/>
+                                    <input type="button" onclick="procesar();" name="Signup" value="inicio" class="btn"
+                                        id="submit-id-send_2" />
+                            </div>
+                        </div>
+
+                    </form>
+      </div>
+    </div>
 <body id="form-msg">
 
 <!--  row align-items-center justify-content-center-->
 
 
-    <div class="container" >
+    <!--<div class="container" >
       <div class="row align-items-center justify-content-center">
         <div id="signupbox"  class="">
             <div class="card" style="width:18rem; margin-top:110px;">
@@ -105,7 +189,7 @@
             </div>
         </div>
       </div>
-    </div>
+    </div>-->
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
